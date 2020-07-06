@@ -1,0 +1,22 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Another Course",
+      "description": "Restee",
+      "favorite": null
+    },
+    {
+      "id": 2,
+      "title": "Learn 2 Cook!",
+      "description": "Learning how to cook by the book -lil Jo",
+      "favorite": true
+    },
+    {
+      "id": 3,
+      "title": "Learn 2 Fly!",
+      "description": "You can fly! Now complete with volumes 1 and 2!",
+      "favorite": true
+    }
+  ]
+}
