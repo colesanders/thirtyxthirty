@@ -4,7 +4,7 @@ import { Login } from '@thirty/api-interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export const BASE_URL = 'http://localhost:3000/logins';
+export const BASE_URL = 'https://thirtyxthirty-lessons.herokuapp.com/logins';
 
 @Injectable({
   providedIn: 'root'

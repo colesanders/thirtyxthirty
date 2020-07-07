@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Lesson } from '@thirty/api-interfaces';
 import { Observable } from 'rxjs';
 
-export const BASE_URL = 'http://localhost:3000/lessons';
+export const BASE_URL = 'https://thirtyxthirty-lessons.herokuapp.com/lessons';
 
 @Injectable({
   providedIn: 'root'
