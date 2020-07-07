@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+thirty-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+mat-sidenav {
+  width: 150px;
+  background-color: rgba(62, 62, 62, 1) !important;
+}
+
+.mat-sidenav-container {
+  background: #f5f5f5;
+  flex: 1;
+}
+
+.lessons-containers {
+  display: flex;
+  justify-content: space-around;
+
+  .lessons-list {
+    width: 49%;
+  }
+
+  .lessons-info {
+    width: 49%;
+  }
+}

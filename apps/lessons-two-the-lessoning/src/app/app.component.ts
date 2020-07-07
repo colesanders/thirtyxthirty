@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@thirty/api-interfaces';
+import { LoginService } from '@thirty/core-data';
 
 @Component({
   selector: 'thirty-root',
@@ -8,6 +8,11 @@ import { Message } from '@thirty/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  title = 'Lessons App';
+  links = [
+    { path: '/home', title: 'Home' },
+    { path: '/login', title: 'Login' },
+  ];
+
+  constructor(private http: HttpClient, public loginService: LoginService) {}
 }
