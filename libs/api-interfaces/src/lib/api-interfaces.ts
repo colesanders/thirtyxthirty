@@ -8,6 +8,7 @@ export interface Fruit {
   "description": string,
   "color": string,
   "favorite": boolean,
+  "icon" : string,
   "amount": number,
 }
 

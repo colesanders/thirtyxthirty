@@ -5,7 +5,7 @@
         </thirty-fruit-list>
     </div>
     <div class="fruit-info">
-        <thirty-fruit-info [fruit]="selectedFruit" (saved)="saveFruit($event)" (cancelled)="resetForm()"> 
+        <thirty-fruit-info [fruitForm]="fruitForm" (saved)="saveFruit()" (cancelled)="resetForm()"> 
         </thirty-fruit-info>
     </div>
 </div>

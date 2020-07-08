@@ -1,41 +1,65 @@
 <mat-card class="mat-card-dark"> 
-    <mat-card-header>
-      <mat-card-title>
-        <span *ngIf="fruit.id !== null; else elseBlock">
+    <mat-card-header style="display: flex; justify-content: space-between;">
+      <mat-card-title class="accent">
+        <span *ngIf="fruitForm.value.id !== null; else elseBlock">
           Editing Fruit
         </span>
         <ng-template #elseBlock>
           Create Fruit
         </ng-template>
       </mat-card-title>
+      <mat-icon [svgIcon]="fruitForm.value.icon"></mat-icon>
     </mat-card-header>
-  <form #form="ngForm" (ngSubmit)="saved.emit(fruit);">
+  <form [formGroup]="fruitForm" (ngSubmit)="saved.emit()">
     <mat-card-content>
       <mat-form-field class="full-width">
-        <input matInput required [style]="'color: ' + fruit.color" name="name" placeholder="Name" type="text"
-          [(ngModel)]="fruit.name">
+        <input matInput required [style]="'color: ' + fruitForm.value.color" placeholder="Name" type="text"
+          formControlName="name">
       </mat-form-field>
       <br>
       <mat-form-field class="full-width">
-          <textarea  matInput required name="description" placeholder="Description" type="text"
-            [(ngModel)]="fruit.description">
+          <textarea  matInput required placeholder="Description" type="text"
+          formControlName="description">
           </textarea> 
       </mat-form-field>
       <br>
       <mat-form-field class="full-width">
-          <input  matInput required name="amount" placeholder="Amount" type="number"
-            [(ngModel)]="fruit.amount">
+          <input  matInput required placeholder="Amount" type="number"
+          formControlName="amount">
       </mat-form-field>  
       
       <section>
-        <mat-checkbox matInput name="favorite"
-          [(ngModel)]="fruit.favorite">
+        <mat-checkbox matInput style="padding-left: 10px;" formControlName="favorite">
+          Favorite
         </mat-checkbox> 
       </section>
+      <mat-radio-group matInput formControlName="icon" style="display: flex; justify-content: space-between;">
+        <div>
+          <mat-radio-button class="radio-button" value="thirty-apple">
+          </mat-radio-button>
+          <mat-icon svgIcon="thirty-apple"></mat-icon>
+        </div>
+        <div>
+          <mat-radio-button class="radio-button" value="thirty-banana">
+          </mat-radio-button>
+          <mat-icon svgIcon="thirty-banana"></mat-icon>
+        </div>
+        <div>
+          <mat-radio-button class="radio-button" value="thirty-orange">
+          </mat-radio-button>
+          <mat-icon svgIcon="thirty-orange"></mat-icon>
+        </div>
+        <div>
+          <mat-radio-button class="radio-button" value="thirty-passion-fruit">
+          </mat-radio-button>
+          <mat-icon svgIcon="thirty-passion-fruit"></mat-icon>
+        </div>
+        
+      </mat-radio-group>
     </mat-card-content>
-    <mat-card-actions>
-      <button [disabled]="form.invalid" type="submit" mat-button color="primary">Save</button>
-      <button styles="right: 5%" type="button" mat-button (click)="cancelled.emit();form.reset();">
+    <mat-card-actions style="display: flex; justify-content: space-between;">
+      <button [disabled]="fruitForm.invalid" type="submit" mat-button color="primary">Save</button>
+      <button type="button" mat-button (click)="cancelled.emit();fruitForm.reset();">
         Cancel
       </button>
     </mat-card-actions>

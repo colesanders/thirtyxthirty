@@ -1,11 +1,11 @@
 <div class="fruit-containers">
   <mat-card class="mat-card-dark">
     <mat-card-header>
-      <mat-card-title>
+      <mat-card-title class="accent">
         Login
       </mat-card-title>
     </mat-card-header>
-    <form [formGroup]="loginForm" (ngSubmit)="validateLogin()">
+    <form [formGroup]="loginForm" (ngSubmit)="validateLogin();">
         <mat-card-content>
             <mat-form-field class="full-width login-border" style="margin-bottom: 8px;" login-border>
                 <input matInput login-border required placeholder="Username" type="text"
@@ -22,7 +22,7 @@
           class="login-border">
               Login
           </button>
-          <button styles="right: 5%" type="button" mat-button (click)="loginForm.reset()"
+          <button styles="right: 5%" type="button" mat-button (click)="loginForm.reset();"
           class="login-border">
             Clear
           </button>

@@ -1,6 +1,6 @@
 <mat-card class="mat-card-dark">
     <mat-card-header>
-      <mat-card-title>
+      <mat-card-title class="accent">
         Fruits List
       </mat-card-title>
     </mat-card-header>
@@ -11,10 +11,12 @@
           <p matLine>
             {{ fruit.description }}
           </p>
+          <mat-icon [svgIcon]="fruit.icon"></mat-icon>
           <button mat-icon-button color="warn" (click)="deleted.emit(fruit); $event.stopImmediatePropagation()" >
             <mat-icon>delete</mat-icon>
           </button>
         </mat-list-item>
       </mat-list>
+      
     </mat-card-content>
 </mat-card>
