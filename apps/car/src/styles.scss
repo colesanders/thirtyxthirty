@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+thirty-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.toolbar {
+  display: flex; 
+  justify-content: space-between;
+}
+
+mat-sidenav {
+  width: auto;
+  background-color: rgb(154, 59, 59) !important;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.accent {
+  color: #64FFDA;
+}
+
+.mat-sidenav-container {
+  flex: 1;
+  border-radius: 0px 0px 20px 0px;
+}
+
+.car-containers {
+  display: flex;
+  padding: 8px;
+  justify-content: space-around;
+  border-radius: 8px;
+
+  .car-list {
+    width: 49%;
+  }
+
+  .car-info {
+    width: 49%;
+  }
+
+  .mat-card-dark {
+    background-color: grey;
+  }
+}

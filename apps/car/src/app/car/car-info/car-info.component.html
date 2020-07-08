@@ -1,0 +1,50 @@
+<mat-card class="mat-card-dark"> 
+    <mat-card-header style="display: flex; justify-content: space-between;">
+      <mat-card-title class="accent">
+        <span *ngIf="carForm.value.id !== null; else elseBlock">
+          Editing Car
+        </span>
+        <ng-template #elseBlock>
+          Create Car
+        </ng-template>
+      </mat-card-title>
+    </mat-card-header>
+  <form [formGroup]="carForm" (ngSubmit)="saved.emit()">
+    <mat-card-content >
+      <mat-form-field appearance="fill">
+        <mat-label>Select Type</mat-label>
+        <mat-select matInput required formControlName="type">
+          <mat-option value="truck">Truck</mat-option>
+          <mat-option value="car">Car</mat-option>
+          <mat-option value="sedan">Sedan</mat-option>
+          <mat-option value="coupe">Coupe</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-width">
+          <textarea  matInput required placeholder="Description" type="text"
+          formControlName="description">
+          </textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-width" >
+        <input  matInput required placeholder="Color" [style]="'color: ' + carForm.value.color" type="string"
+        formControlName="color">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-width">
+        <mat-label>
+          {{carForm.value.price | currency}}
+        </mat-label>
+          <input  matInput required placeholder="Price" type="number"
+          formControlName="price">
+      </mat-form-field>  
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: space-between;">
+      <button [disabled]="carForm.invalid" type="submit" mat-button color="primary">Save</button>
+      <button type="button" mat-button (click)="cancelled.emit();carForm.reset();">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

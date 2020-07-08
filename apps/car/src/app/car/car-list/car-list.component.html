@@ -1,0 +1,21 @@
+<mat-card class="mat-card-dark">
+    <mat-card-header>
+      <mat-card-title class="accent">
+        Cars List
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let car of cars" (click)="selected.emit(car)">
+          <h3 matLine> {{ car.type | titlecase }} </h3>
+          <p matLine>
+            {{ car.description }}
+          </p>
+          <button mat-icon-button color="warn" (click)="deleted.emit(car); $event.stopImmediatePropagation()" >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+      
+    </mat-card-content>
+</mat-card>

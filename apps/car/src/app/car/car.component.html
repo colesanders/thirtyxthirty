@@ -1,0 +1,11 @@
+<div class="car-containers">
+
+    <div class="car-list">
+        <thirty-car-list [cars]="car$ | async" (selected)="selectCar($event)" (deleted)="deleteCar($event)">
+        </thirty-car-list>
+    </div>
+    <div class="car-info">
+        <thirty-car-info [carForm]="carForm" (saved)="saveCar()" (cancelled)="resetForm()"> 
+        </thirty-car-info>
+    </div>
+</div>
