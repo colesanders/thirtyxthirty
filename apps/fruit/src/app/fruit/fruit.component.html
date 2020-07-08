@@ -1,0 +1,11 @@
+<div class="fruit-containers">
+
+    <div class="fruit-list">
+        <thirty-fruit-list [fruits]="fruit$ | async" (selected)="selectFruit($event)" (deleted)="deleteFruit($event)">
+        </thirty-fruit-list>
+    </div>
+    <div class="fruit-info">
+        <thirty-fruit-info [fruit]="selectedFruit" (saved)="saveFruit($event)" (cancelled)="resetForm()"> 
+        </thirty-fruit-info>
+    </div>
+</div>

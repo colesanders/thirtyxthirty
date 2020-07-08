@@ -1,0 +1,43 @@
+<mat-card class="mat-card-dark"> 
+    <mat-card-header>
+      <mat-card-title>
+        <span *ngIf="fruit.id !== null; else elseBlock">
+          Editing Fruit
+        </span>
+        <ng-template #elseBlock>
+          Create Fruit
+        </ng-template>
+      </mat-card-title>
+    </mat-card-header>
+  <form #form="ngForm" (ngSubmit)="saved.emit(fruit);">
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input matInput required [style]="'color: ' + fruit.color" name="name" placeholder="Name" type="text"
+          [(ngModel)]="fruit.name">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-width">
+          <textarea  matInput required name="description" placeholder="Description" type="text"
+            [(ngModel)]="fruit.description">
+          </textarea> 
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-width">
+          <input  matInput required name="amount" placeholder="Amount" type="number"
+            [(ngModel)]="fruit.amount">
+      </mat-form-field>  
+      
+      <section>
+        <mat-checkbox matInput name="favorite"
+          [(ngModel)]="fruit.favorite">
+        </mat-checkbox> 
+      </section>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="form.invalid" type="submit" mat-button color="primary">Save</button>
+      <button styles="right: 5%" type="button" mat-button (click)="cancelled.emit();form.reset();">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

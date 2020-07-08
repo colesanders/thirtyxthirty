@@ -1,0 +1,78 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Another Course",
+      "description": "worakjsfl;ask",
+      "favorite": null,
+      "percentComplete": 25
+    },
+    {
+      "id": 2,
+      "title": "Learn 2 Cook!",
+      "description": "Learning how to cook by the book -lil Jon",
+      "favorite": true,
+      "percentComplete": 8
+    },
+    {
+      "id": 3,
+      "title": "Learn 2 Fly!",
+      "description": "You can fly! Now complete with volumes 1 and 2!",
+      "favorite": true,
+      "percentComplete": 11
+    },
+    {
+      "id": 4,
+      "title": "New Lesson Testing BBy",
+      "description": "New test, work on service tho boi",
+      "favorite": false,
+      "percentComplete": 100
+    }
+  ],
+  "fruits": [
+    {
+      "id": 1,
+      "name": "Apples",
+      "description": "Red and Sweet, Fuji",
+      "color": "red",
+      "favorite": false,
+      "amount": 12
+    },
+    {
+      "id": 2,
+      "name": "Oranges",
+      "description": "Well, orange",
+      "color": "orange",
+      "favorite": false,
+      "amount": 2
+    },
+    {
+      "id": 3,
+      "name": "Bananas",
+      "description": "Long and curvy, what more do you need?",
+      "color": "yellow",
+      "favorite": false,
+      "amount": 500
+    },
+    {
+      "id": 4,
+      "name": "Mystery Fruit",
+      "description": "What could it be? ¯\\_(ツ)_/¯",
+      "color": "purple",
+      "favorite": true,
+      "amount": 33
+    }
+  ],
+  "logins": [
+    {
+      "id": 1,
+      "username": "cole",
+      "password": "12345"
+    },
+    {
+      "id": 2,
+      "username": "sand",
+      "password": "54321"
+    }
+  ]
+}

@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+thirty-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+mat-sidenav {
+  width: 150px;
+  background-color: rgb(154, 59, 59) !important;
+}
+
+.mat-sidenav-container {
+  background: #f5f5f5;
+  flex: 1;
+}
+
+.fruit-containers {
+  display: flex;
+  padding: 5px;
+  justify-content: space-around;
+  background-color: rgb(52, 49, 49);
+
+  .fruit-list {
+    width: 49%;
+  }
+
+  .fruit-info {
+    width: 49%;
+  }
+
+  .mat-card-dark {
+    background-color: grey;
+  }
+}
