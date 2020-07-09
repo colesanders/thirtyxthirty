@@ -23,8 +23,11 @@ export class LoginComponent implements OnInit {
   validateLogin(){
     const login = this.loginForm.value;
     login.id = null;
+    login.logged_in = null;
 
-    this.loginService.validateLoginAttempt(login)
+    this.loginService.validateLoginAttempt(login);
+
+    this.loginForm.reset();
     
   }
 

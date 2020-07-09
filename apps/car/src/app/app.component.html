@@ -2,18 +2,21 @@
   <span class="title accent" >
     {{title}}
   </span>
-  <span *ngIf="loginService.loggedIn" class="accent">
-    Logged In!
+  <span class="title accent" *ngIf="loginService.currentUser.logged_in">
+    Hello {{ loginService.currentUser.username | titlecase}}
   </span>
+  <button mat-button *ngIf="loginService.currentUser.logged_in" class="accent" (click)="loginService.logout()">
+    Log Out
+  </button>
 </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav
-    opened="true" mode="side" class="app-sidenav ">
+    [opened]="loginService.currentUser.logged_in" mode="side" class="app-sidenav ">
     <ng-container>
       <nav>
         <div>
-          <div *ngFor="let link of links">
+          <div *ngFor="let link of links" >
             <a mat-button class="nav-link" [routerLink]="link.path" routerLinkActive="active">
               <span >
                 {{link.title}}
