@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from '@thirty/core-data';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'thirty-root',
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   ];
 
   constructor(private http: HttpClient, public loginService: LoginService, 
-    private router: Router, private route: ActivatedRoute){}
+    private router: Router){}
 
   ngOnInit(){
     this.loginService.autoLogin();
