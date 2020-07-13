@@ -8,13 +8,25 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WaterFountainComponent } from './water-fountain/water-fountain.component';
-import { WaterFountainInfoComponent } from './water-fountain/water-fountain-info/water-fountain-info.component';
-import { WaterFountainListComponent } from './water-fountain/water-fountain-list/water-fountain-list.component';
+import { WaterFountainInfoComponent } from './water-fountain/water-fountain-mdv/water-fountain-info/water-fountain-info.component';
+import { WaterFountainListComponent } from './water-fountain/water-fountain-mdv/water-fountain-list/water-fountain-list.component';
 import { LoginComponent } from './login/login.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { WaterFountainMDVComponent } from './water-fountain/water-fountain-mdv/water-fountain-mdv.component';
 
 const routes: Routes = [
-  { path: 'waterFountain', component: WaterFountainComponent},
+  { path: 'waterFountain', component: WaterFountainComponent,
+    children: [
+      {
+        path: 'mdv', // child route path
+        component: WaterFountainMDVComponent // child route component that the router renders
+      },
+      {
+        path: '404',
+        component: FourOhFourComponent // another child route component that the router renders
+      }
+    ]
+  },
   { path: 'login', component: LoginComponent},
   { path: '404', component: FourOhFourComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -22,7 +34,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent,WaterFountainComponent, WaterFountainInfoComponent, WaterFountainListComponent, LoginComponent, FourOhFourComponent],
+  declarations: [AppComponent,WaterFountainComponent, WaterFountainInfoComponent, WaterFountainListComponent, LoginComponent, FourOhFourComponent, WaterFountainMDVComponent],
   imports: [ BrowserModule, ReactiveFormsModule, FormsModule, HttpClientModule, BrowserAnimationsModule, MaterialModule,RouterModule.forRoot(routes)], 
   providers: [],
   bootstrap: [AppComponent],

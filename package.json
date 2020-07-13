@@ -48,6 +48,7 @@
     "@nrwl/angular": "9.5.1",
     "bootstrap": "^4.5.0",
     "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.4",
     "zone.js": "^0.10.2"

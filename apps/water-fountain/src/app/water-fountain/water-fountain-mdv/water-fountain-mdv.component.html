@@ -1,0 +1,10 @@
+<div style="width: 100%;" class="waterFountain-containers">
+    <div class="waterFountain-list">
+        <thirty-water-fountain-list [waterFountains]="waterFountain$ | async" (selected)="selectWaterFountain($event)" (deleted)="deleteWaterFountain($event)">
+        </thirty-water-fountain-list>
+    </div>
+    <div class="waterFountain-info">
+        <thirty-water-fountain-info [waterFountainForm]="waterFountainForm" (saved)="saveWaterFountain()" (cancelled)="resetForm()"> 
+        </thirty-water-fountain-info>
+    </div>
+</div>

@@ -34,6 +34,21 @@
       </mat-form-field>
       <br>
 
+      <section>
+        <mat-slider formControlName="pressure"
+        thumbLabel tickInterval="1" min="1" max="5">
+        </mat-slider>
+
+        <mat-slider formControlName="temperature"
+        thumbLabel tickInterval="1" min="1" max="5">
+        </mat-slider>
+
+        <mat-label>Average Water Rating</mat-label><br>
+        <span *ngFor="let drop of dropDisplay | slice:0: (waterFountainForm.value.pressure + waterFountainForm.value.temperature)/2">
+          <mat-icon svgIcon="thirty-water-drop" class="star-color"></mat-icon>
+        </span>
+      </section>
+
 
     </mat-card-content>
     <mat-card-actions style="display: flex; justify-content: space-between;">
@@ -43,5 +58,4 @@
       </button>
     </mat-card-actions>
   </form>
-  {{ waterFountainForm.value | json}}
 </mat-card>

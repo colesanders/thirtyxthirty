@@ -13,7 +13,6 @@ export class AppComponent implements OnInit{
   links = [
     { path: '/waterFountain', title: 'WaterFountain' },
     { path: '/login', title: 'Login' },
-    {path: '/404', title: '404 Test Link'},
   ];
 
   constructor(private http: HttpClient, public loginService: LoginService, 
