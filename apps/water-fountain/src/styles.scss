@@ -28,5 +28,64 @@ $water-fountain-theme: mat-light-theme($water-fountain-primary, $water-fountain-
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+thirty-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.toolbar {
+  display: flex; 
+  justify-content: space-between;
+}
+
+mat-sidenav {
+  width: auto;
+  background-color: #21f3e9 !important;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.content-spread {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accent {
+  color: #2196F3 ;
+}
+
+.mat-sidenav-container {
+  flex: 1;
+  border-radius: 0px 0px 20px 0px;
+}
+
+.waterFountain-containers {
+  display: flex;
+  padding: 8px;
+  justify-content: space-around;
+  border-radius: 8px;
+
+  .waterFountain-list {
+    width: 49%;
+  }
+
+  .waterFountain-info {
+    width: 49%;
+  }
+
+  .mat-waterFountaind-dark {
+    background-color: grey;
+  }
+}

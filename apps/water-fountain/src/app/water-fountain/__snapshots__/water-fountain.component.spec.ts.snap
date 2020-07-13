@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WaterFountainComponent should select a waterFountain 1`] = `
+Object {
+  "description": "Mock",
+  "id": 1,
+  "name": "Mock WaterFountain",
+  "pressure": 1,
+  "stars": 1,
+  "temperature": 1,
+}
+`;

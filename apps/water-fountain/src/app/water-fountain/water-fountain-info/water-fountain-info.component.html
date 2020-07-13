@@ -1,0 +1,47 @@
+<mat-card class="mat-card-dark"> 
+    <mat-card-header style="display: flex; justify-content: space-between;">
+      <mat-card-title class="accent">
+        <span *ngIf="waterFountainForm.value.id !== null; else elseBlock">
+          Editing WaterFountain
+        </span>
+        <ng-template #elseBlock>
+          Create WaterFountain
+        </ng-template>
+        <mat-icon svgIcon="thirty-water-drop"></mat-icon>
+      </mat-card-title>
+      
+    </mat-card-header>
+  <form [formGroup]="waterFountainForm" (ngSubmit)="saved.emit()">
+    <mat-card-content>
+
+      <mat-form-field class="full-width" style="width: 50%" >
+        <mat-label *ngIf="waterFountainForm.invalid && waterFountainForm.touched">
+          Name must contain at least 2 characters.
+        </mat-label>
+        <input  matInput required placeholder="Name" type="string"
+        formControlName="name">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="full-width">
+        <mat-label *ngIf="waterFountainForm.invalid && waterFountainForm.touched">
+          Description must contain 10 characters.
+        </mat-label>
+
+        <textarea  matInput required placeholder="Description" type="text"
+        formControlName="description">
+        </textarea>
+      </mat-form-field>
+      <br>
+
+
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: space-between;">
+      <button [disabled]="waterFountainForm.invalid" type="submit" mat-button color="primary">Save</button>
+      <button type="button" mat-button (click)="cancelled.emit();waterFountainForm.reset();">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+  {{ waterFountainForm.value | json}}
+</mat-card>
