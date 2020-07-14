@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheeseComponent should select a cheese 1`] = `
+Array [
+  "detail/",
+  1,
+]
+`;

@@ -1,0 +1,50 @@
+<mat-card class="mat-card-dark"> 
+    <mat-card-header style="display: flex; justify-content: space-between;">
+      <mat-card-title class="accent">
+        Single Detail
+      </mat-card-title>
+      
+    </mat-card-header>
+    <form [formGroup]="cheeseForm" (ngSubmit)="saveCheese()">
+      <mat-card-content>
+  
+        <mat-form-field class="full-width" style="width: 50%" >
+          <mat-label *ngIf="cheeseForm.invalid && cheeseForm.touched">
+            Name must contain at least 2 characters.
+          </mat-label>
+          <input  matInput required placeholder="Name" type="string"
+          formControlName="name">
+        </mat-form-field>
+        <br>
+  
+        <mat-form-field class="full-width">
+          <mat-label *ngIf="cheeseForm.invalid && cheeseForm.touched">
+            Description must contain 10 characters.
+          </mat-label>
+  
+          <textarea  matInput required placeholder="Description" type="text"
+          formControlName="description">
+          </textarea>
+        </mat-form-field>
+        <br>
+  
+        <mat-form-field class="full-width">
+          <mat-label >
+            Cost: {{cheeseForm.value.price | currency}}
+          </mat-label>
+  
+          <input  matInput required placeholder="Price" type="number"
+          formControlName="price"/>
+        </mat-form-field>
+        <br>
+  
+  
+      </mat-card-content>
+      <mat-card-actions style="display: flex; justify-content: space-between;">
+        <button [disabled]="cheeseForm.invalid" type="submit" mat-button color="primary">Save</button>
+        <button type="button" mat-button (click)="cheeseForm.reset();">
+          New Cheese Form
+        </button>
+      </mat-card-actions>
+    </form>
+</mat-card>

@@ -1,1 +1,14 @@
-<p>cheese works!</p>
+<div>
+    <mat-toolbar>
+        <span>Cheese Store</span>
+        <div *ngFor="let link of links" >
+            <a mat-button class="nav-link" [routerLink]="link.path" routerLinkActive="active">
+              <span >
+                {{link.title}}
+              </span>
+            </a>
+        </div>
+    </mat-toolbar>
+</div>
+
+<router-outlet></router-outlet>

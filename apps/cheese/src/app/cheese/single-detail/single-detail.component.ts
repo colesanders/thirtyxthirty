@@ -1,37 +1,40 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { Cheese } from '@thirty/api-interfaces';
 import { CheeseService, SnackBarService } from '@thirty/core-data';
 import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { CheeseComponent } from '../cheese.component';
+
 
 @Component({
-  selector: 'thirty-cheese-mdv',
-  templateUrl: './cheese-mdv.component.html',
-  styleUrls: ['./cheese-mdv.component.scss']
+  selector: 'thirty-single-detail',
+  templateUrl: './single-detail.component.html',
+  styleUrls: ['./single-detail.component.scss']
 })
-export class CheeseMDVComponent implements OnInit {
-
-  title = 'Cheese Store';
-  selectedCheese: Cheese;
+export class SingleDetailComponent implements OnInit {
+  title = 'Cheese Detail';
   cheeseForm: FormGroup
-  cheese$: Observable<Cheese[]>;
 
-  constructor(private cheeseComponent: CheeseComponent,private cheeseService: CheeseService, private formBuilder: FormBuilder, public snackBarService: SnackBarService) { }
+  constructor(private route: ActivatedRoute, private cheeseService: CheeseService, private formBuilder: FormBuilder, public snackBarService: SnackBarService) { }
 
   ngOnInit(): void {
     this.creatFormGroup();
-    this.refresh();
+    this.getCheese();
   }
 
-  getSelectedId(){
-    return this.selectedCheese.id;
+  getCheese(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.cheeseService.getCheeseById(id)
+    .subscribe( (cheese) => {
+      this.cheeseForm.patchValue(cheese);
+    })
   }
 
   deleteCheese(cheese:Cheese) {
     this.cheeseService.deleteCheese(cheese)
     .subscribe( m => {
-      this.refresh();
+      this.getCheese();
     });
   }
 
@@ -43,19 +46,14 @@ export class CheeseMDVComponent implements OnInit {
     if(cheese.id !== null){
       this.cheeseService.updateCheese(cheese)
       .subscribe( m => {
-        this.refresh();
+        this.getCheese();
       });
     } else {
       this.cheeseService.createCheese(cheese)
       .subscribe( m => {
-        this.refresh();
+        this.getCheese();
       });
     }
-  }
-
-  refresh(){
-    this.loadCheeses();
-    this.resetForm();
   }
 
   creatFormGroup(){
@@ -79,18 +77,4 @@ export class CheeseMDVComponent implements OnInit {
       ]),
     })
   }
-
-  resetForm() {
-    this.cheeseForm.patchValue({});
-  }
-
-  selectCheese(cheese: Cheese) {
-    this.cheeseForm.patchValue(cheese);
-    this.cheeseComponent.updateLinks(cheese.id);
-  }
-
-  loadCheeses(): void{
-    this.cheese$ = this.cheeseService.getCheeses();
-  }
-
 }

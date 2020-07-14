@@ -1,1 +1,10 @@
-<p>cheese-mdv works!</p>
+<div style="width: 100%;" class="cheese-containers">
+    <div class="cheese-list">
+        <thirty-cheese-list [cheeses]="cheese$ | async" (selected)="selectCheese($event)" (deleted)="deleteCheese($event)">
+        </thirty-cheese-list>
+    </div>
+    <div class="cheese-info">
+        <thirty-cheese-info [cheeseForm]="cheeseForm" (saved)="saveCheese()" (cancelled)="resetForm()"> 
+        </thirty-cheese-info>
+    </div>
+</div>
