@@ -1,0 +1,42 @@
+<mat-card class="mat-card-dark"> 
+  <mat-card-header style="display: flex; justify-content: space-between;">
+    <mat-card-title class="accent">
+      <span *ngIf="pizzaForm.value.id !== null; else elseBlock">
+        Addings Toppings
+      </span>
+      <ng-template #elseBlock>
+        New Pizza, New Toppings
+      </ng-template>
+    </mat-card-title>
+
+  </mat-card-header>
+<form [formGroup]="pizzaForm" (ngSubmit)="savePizza()">
+  <mat-card-content >
+
+    <mat-form-field class="chip-list">
+      <mat-chip-list #chipList >
+        <mat-chip *ngFor="let topping of pizzaForm.value.toppings"
+        [selectable]="selectable" [removable]="removable" (removed)="remove(topping)">
+          {{topping}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+
+        <input matInput 
+          [matChipInputFor]="chipList"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           [matChipInputAddOnBlur]="addOnBlur"
+           (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+    
+
+  </mat-card-content>
+  <mat-card-actions style="display: flex; justify-content: space-between;">
+    <button [disabled]="pizzaForm.invalid" type="submit" mat-button color="primary">Save</button>
+    <button type="button" mat-button (click)="resetForm()">
+      Clear
+    </button>
+  </mat-card-actions>
+</form>
+{{pizzaForm.value | json}}
+</mat-card>

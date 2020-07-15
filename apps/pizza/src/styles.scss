@@ -28,5 +28,64 @@ $pizza-theme: mat-light-theme($pizza-primary, $pizza-accent, $pizza-warn);
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+thirty-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.toolbar {
+  display: flex; 
+  justify-content: space-between;
+}
+
+mat-sidenav {
+  width: auto;
+  background-color: #007C00 !important;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.content-spread {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accent {
+  color: #007C00 ;
+}
+
+.mat-sidenav-container {
+  flex: 1;
+  border-radius: 0px 0px 20px 0px;
+}
+
+.pizza-containers {
+  display: flex;
+  padding: 8px;
+  justify-content: space-around;
+  border-radius: 8px;
+
+  .pizza-list {
+    width: 49%;
+  }
+
+  .pizza-info {
+    width: 49%;
+  }
+
+  .mat-pizzad-dark {
+    background-color: grey;
+  }
+}

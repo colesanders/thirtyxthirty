@@ -1,1 +1,28 @@
-<p>pizza works!</p>
+<div>
+    <mat-toolbar>
+        <span>Cheese Store</span>
+          <div *ngFor="let link of links" >
+            <a mat-button class="nav-link" [routerLink]="link.path" routerLinkActive="active">
+              <span >
+                {{link.title}}
+              </span>
+            </a>
+          </div>
+    </mat-toolbar>
+</div>
+
+<div class="pizza-containers">
+    <div class="pizza-list">
+        <thirty-pizza-list [pizzas]="pizzas$ | async" (selected)="selectPizza($event)" (deleted)="deletePizza($event)">
+        </thirty-pizza-list>
+    </div>
+    <div class="pizza-detail">
+        <thirty-pizza-detail [pizza]="pizza$ | async" (saved)="savePizza($event)" (cancelled)="cancel()"> 
+        </thirty-pizza-detail>
+    </div>
+</div>
+
+
+<router-outlet>
+
+</router-outlet>

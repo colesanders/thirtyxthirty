@@ -1,0 +1,52 @@
+<mat-card class="mat-card-dark"> 
+    <mat-card-header style="display: flex; justify-content: space-between;">
+      <mat-card-title class="accent">
+        <span *ngIf="pizzaForm.value.id !== null; else elseBlock">
+          Editing Pizza
+        </span>
+        <ng-template #elseBlock>
+          Create Pizza
+        </ng-template>
+      </mat-card-title>
+      
+    </mat-card-header>
+  <form [formGroup]="pizzaForm" (ngSubmit)="saved.emit(pizzaForm.value)">
+    <mat-card-content >
+
+      <mat-form-field class="full-width" style="width: 50%" >
+        <input  matInput required placeholder="Crust" type="string"
+        formControlName="crust">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="full-width" style="width: 50%" >
+        <input  matInput required placeholder="Cheese" type="string"
+        formControlName="cheese">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="full-width" style="width: 50%" >
+        <input  matInput required placeholder="Sauce" type="string"
+        formControlName="sauce">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="full-width">
+        <mat-label>
+          {{pizzaForm.value.price | currency}}
+        </mat-label>
+          <input  matInput required placeholder="Price" type="number"
+          formControlName="price">
+      </mat-form-field> 
+      <br>
+
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: space-between;">
+      <button [disabled]="pizzaForm.invalid" type="submit" mat-button color="primary">Save</button>
+      <button type="button" mat-button (click)="cancelled.emit();pizzaForm.reset();">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+  {{pizzaForm.value | json}}
+</mat-card>
