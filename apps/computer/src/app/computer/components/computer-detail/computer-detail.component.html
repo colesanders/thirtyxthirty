@@ -1,1 +1,52 @@
-<p>computer-detail works!</p>
+<mat-card class="mat-card-dark"> 
+    <mat-card-header style="display: flex; justify-content: space-between;">
+      <mat-card-title class="accent">
+        <span *ngIf="computerForm.value.id !== null; else elseBlock">
+          Editing Computer
+        </span>
+        <ng-template #elseBlock>
+          Create Computer
+        </ng-template>
+      </mat-card-title>
+      
+    </mat-card-header>
+  <form [formGroup]="computerForm" (ngSubmit)="saved.emit(computerForm.value)">
+    <mat-card-content >
+
+      <mat-form-field class="full-width" >
+        <input  matInput required placeholder="CPU" type="string"
+        formControlName="cpu">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="full-width"  >
+        <input  matInput required placeholder="GPU" type="string"
+        formControlName="gpu">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="full-width" >
+        <input  matInput required placeholder="RAM" type="number"
+        formControlName="ram">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field >
+        <mat-label>
+          {{computerForm.value.price | currency}}
+        </mat-label>
+          <input  matInput required placeholder="Price" type="number"
+          formControlName="price">
+      </mat-form-field> 
+      <br>
+
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: space-between;">
+      <button [disabled]="computerForm.invalid" type="submit" mat-button color="primary">Save</button>
+      <button type="button" mat-button (click)="cancelled.emit();computerForm.reset();">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+  {{computer| json}}
+</mat-card>

@@ -1,1 +1,28 @@
-<p>computer works!</p>
+<div>
+    <mat-toolbar>
+        <span>Cheese Store</span>
+          <div *ngFor="let link of links" >
+            <a mat-button class="nav-link" [routerLink]="link.path" routerLinkActive="active">
+              <span >
+                {{link.title}}
+              </span>
+            </a>
+          </div>
+    </mat-toolbar>
+</div>
+
+<div class="computer-containers">
+    <div class="computer-list">
+        <thirty-computer-list [computers]="computers$ | async" (selected)="selectComputer($event)" (deleted)="deleteComputer($event)">
+        </thirty-computer-list>
+    </div>
+    <div class="computer-detail">
+        <thirty-computer-detail [computer]="computer$ | async" (saved)="saveComputer($event)" (cancelled)="cancel()"> 
+        </thirty-computer-detail>
+    </div>
+</div>
+
+
+<router-outlet>
+
+</router-outlet>

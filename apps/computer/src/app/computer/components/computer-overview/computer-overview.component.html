@@ -1,1 +1,42 @@
-<p>computer-overview works!</p>
+<mat-card class="mat-card-dark" style="margin: 50px;"> 
+    <mat-card-header style="display: flex; justify-content: space-between;">
+      <mat-card-title class="accent">
+        <span *ngIf="computerForm.value.id !== null; else elseBlock">
+          Adding Extras
+        </span>
+        <ng-template #elseBlock>
+          New Computer Add Extras
+        </ng-template>
+      </mat-card-title>
+  
+    </mat-card-header>
+  <form [formGroup]="computerForm" (ngSubmit)="saveComputer()">
+    <mat-card-content >
+  
+      <mat-form-field class="chip-list">
+        <mat-chip-list #chipList >
+          <mat-chip *ngFor="let extra of computerForm.value.extras"
+          [selectable]="selectable" [removable]="removable" (removed)="remove(extra)">
+            {{extra}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+  
+          <input matInput 
+            [matChipInputFor]="chipList"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="addOnBlur"
+             (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+      
+  
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: space-between;">
+      <button [disabled]="computerForm.invalid" type="submit" mat-button color="primary">Save</button>
+      <button type="button" mat-button (click)="resetForm()">
+        Clear
+      </button>
+    </mat-card-actions>
+  </form>
+  {{computerForm.value | json}}
+  </mat-card>

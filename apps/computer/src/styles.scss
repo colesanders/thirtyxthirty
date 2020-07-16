@@ -28,5 +28,66 @@ $computer-theme: mat-light-theme($computer-primary, $computer-accent, $computer-
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+thirty-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.toolbar {
+  display: flex; 
+  justify-content: space-between;
+  background-color: #757575;
+}
+
+mat-sidenav {
+  width: auto;
+  background-color: #424242 !important;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.content-spread {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accent {
+  color: #00E5FF;
+}
+
+.mat-sidenav-container {
+  flex: 1;
+  border-radius: 0px 0px 20px 0px;
+  background-color: #757575;
+}
+
+.computer-containers {
+  display: flex;
+  padding: 8px;
+  justify-content: space-around;
+  border-radius: 8px;
+
+  .computer-list {
+    width: 49%;
+  }
+
+  .computer-info {
+    width: 49%;
+  }
+
+  .mat-computerd-dark {
+    background-color: grey;
+  }
+}

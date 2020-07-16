@@ -1,1 +1,22 @@
-<p>computer-list works!</p>
+<mat-card class="mat-card-dark">
+    <mat-card-header>
+      <mat-card-title class="accent">
+        Computers List
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let computer of computers" (click)="selected.emit(computer)" style="cursor: pointer">
+          <h3 matLine> {{ computer.cpu | titlecase }} </h3>
+          <p matLine>
+            GPU: {{ computer.gpu }}
+            RAM: {{ computer.ram }} Gb
+          </p>
+          <button mat-icon-button color="warn" (click)="deleted.emit(computer); $event.stopImmediatePropagation()" >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+      
+    </mat-card-content>
+</mat-card>
