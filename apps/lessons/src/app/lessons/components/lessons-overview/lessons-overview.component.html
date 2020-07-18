@@ -1,0 +1,25 @@
+<mat-card class="mat-card-dark" style="margin: 50px;"> 
+    <mat-card-header style="display: flex; justify-content: space-between;">
+      <mat-card-title class="accent">
+        <span >
+          Adding Extras
+        </span>
+      </mat-card-title>
+  
+    </mat-card-header>
+  <form [formGroup]="lessonForm" (ngSubmit)="saveLesson()">
+    <mat-card-content >
+  
+      
+      
+  
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: space-between;">
+      <button [disabled]="lessonForm.invalid" type="submit" mat-button color="primary">Save</button>
+      <button type="button" mat-button (click)="resetForm()">
+        Clear
+      </button>
+    </mat-card-actions>
+  </form>
+  {{lessonForm.value | json}}
+  </mat-card>

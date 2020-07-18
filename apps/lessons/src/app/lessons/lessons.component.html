@@ -1,0 +1,28 @@
+<div>
+    <mat-toolbar>
+        <span>Cheese Store</span>
+          <div *ngFor="let link of links" >
+            <a mat-button class="nav-link" [routerLink]="link.path" routerLinkActive="active">
+              <span >
+                {{link.title}}
+              </span>
+            </a>
+          </div>
+    </mat-toolbar>
+</div>
+
+<div class="lesson-containers">
+    <div class="lesson-list">
+        <thirty-lesson-list [lessons]="lessons$ | async" (selected)="selectLesson($event)" (deleted)="deleteLesson($event)">
+        </thirty-lesson-list>
+    </div>
+    <div class="lesson-detail">
+        <thirty-lesson-detail [lesson]="lesson$ | async" (saved)="saveLesson($event)" (cancelled)="cancel()"> 
+        </thirty-lesson-detail>
+    </div>
+</div>
+
+
+<router-outlet>
+
+</router-outlet>

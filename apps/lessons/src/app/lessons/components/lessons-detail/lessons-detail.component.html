@@ -1,0 +1,39 @@
+<mat-card class="mat-card-dark"> 
+    <mat-card-header style="display: flex; justify-content: space-between;">
+      <mat-card-title class="accent">
+        <span *ngIf="lessonForm.value.id !== null; else elseBlock">
+          Editing Lesson
+        </span>
+        <ng-template #elseBlock>
+          Create Lesson
+        </ng-template>
+      </mat-card-title>
+      
+    </mat-card-header>
+  <form [formGroup]="lessonForm" (ngSubmit)="saved.emit(lessonForm.value)">
+    <mat-card-content >
+
+      <mat-form-field class="full-width" >
+        <input  matInput required placeholder="Title" type="string"
+        formControlName="title">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="full-width" >
+        <textarea matInput required placeholder="Description" 
+        formControlName="description">
+
+        </textarea>
+      </mat-form-field>
+      <br>
+
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: space-between;">
+      <button [disabled]="lessonForm.invalid" type="submit" mat-button color="primary">Save</button>
+      <button type="button" mat-button (click)="cancelled.emit();lessonForm.reset();">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+  {{lesson| json}}
+</mat-card>
